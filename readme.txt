@@ -1,0 +1,1 @@
+1. Ejecutar los queries en la carpeta SQL Queries en el siguiente orden: Create Tables, Clients, Products, Sales, Sales2, Sales3.
