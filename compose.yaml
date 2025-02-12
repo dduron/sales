@@ -7,3 +7,23 @@ services:
       - 'POSTGRES_USER=postgres'
     ports:
       - '5432'
+
+  spring-boot-app:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      ports:
+        - "8080"
+      depends_on:
+        - postgres
+      environment:
+        SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/dev
+        SPRING_DATASOURCE_USERNAME: postgres
+        SPRING_DATASOURCE_PASSWORD: root
+
+  react-app:
+      build:
+        context: ./frontend
+        dockerfile: Dockerfile
+      ports:
+        - "3000"
